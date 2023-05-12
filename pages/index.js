@@ -18,7 +18,7 @@ export async function getServerSideProps(context) {
   });
 
   const apiUrl = `${baseUrl}&${qs.stringify(queryParams)}`;
-  console.log( queryParams ,apiUrl);
+  console.log(queryParams, apiUrl);
 
   const res = await fetch(apiUrl);
   const data = await res.json();
@@ -33,11 +33,12 @@ export default function Home({ data }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
-        <h1 className='text-3xl font-bold'>SpaceX Launch</h1>
-        <div className='flex gap-5'>
+      <section className='bg-rose-50'>
+        <h1 className='text-3xl font-bold p-4'>SpaceX Launch</h1>
+        <div className='flex justify-center p-5 gap-5'>
           <Filters />
-          {
+          <div className='grid grid-cols-4 gap-4'>
+            {
               data.map((item, index) => {
                 return (
                   <Components
@@ -53,6 +54,7 @@ export default function Home({ data }) {
               }
 
               )}
+          </div>
         </div>
       </section>
     </div>
