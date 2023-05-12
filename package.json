@@ -10,7 +10,8 @@
     "next": "latest",
     "qs": "^6.11.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "vercel": "^29.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
