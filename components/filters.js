@@ -10,7 +10,7 @@ export default function Filters() {
     })
 
     return (
-        <div className='p-5 bg-white rounded-lg h-fit'>
+        <div className='p-5 w-full mobile:w-fit bg-white rounded-lg h-fit'>
             <h1 className='font-bold'>Filters</h1>
             <div className="flex flex-col">
                 <h2 className='text-center font-light mt-2'>Launch Year</h2>
@@ -40,7 +40,7 @@ export default function Filters() {
                     }
                 </div>
                 <h3 className='text-center font-light mt-2'>Successful Launch</h3>
-                <div className='flex justify-between'>
+                <div className='flex justify-center gap-2'>
                     <Link
                         className="flex rounded bg-lime-400 justify-center"
                         href={{
@@ -74,7 +74,7 @@ export default function Filters() {
                 </div>
 
                 <h3 className='text-center font-light mt-2'>Successful Landing</h3>
-                <div className='flex justify-between gap-2'>
+                <div className='flex justify-center gap-2'>
                     <Link
                         className="flex rounded bg-lime-400 justify-center"
                         href={{

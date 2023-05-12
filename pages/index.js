@@ -36,7 +36,7 @@ export default function Home({ data }) {
       </Head>
       <section>
         <h1 className='text-3xl font-bold p-4'>SpaceX Launch</h1>
-        <div className='flex justify-start p-5 gap-5'>
+        <div className='flex flex-col justify-center items-center p-5 gap-5 mobile:flex-row mobile:justify-start mobile:items-start'>
           <Filters />
           <div className='grid px-10 grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-4 gap-5 flex-auto'>
             {
