@@ -1,7 +1,5 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
 import Filters from '../components/filters'
-import Link from 'next/link';
 import Components from '../components/components'
 import qs from 'qs';
 
@@ -20,24 +18,24 @@ export async function getServerSideProps(context) {
   const apiUrl = `${baseUrl}&${qs.stringify(queryParams)}`;
   console.log(queryParams, apiUrl);
 
+
   const res = await fetch(apiUrl);
   const data = await res.json();
 
   return { props: { data } };
 }
 
-
 export default function Home({ data }) {
   return (
     <div>
       <Head>
-        <title>{siteTitle}</title>
+        <title>SpaceX Launch Programs</title>
       </Head>
-      <section className='bg-rose-50'>
+      <section>
         <h1 className='text-3xl font-bold p-4'>SpaceX Launch</h1>
-        <div className='flex justify-center p-5 gap-5'>
+        <div className='flex justify-start p-5 gap-5'>
           <Filters />
-          <div className='grid grid-cols-4 gap-4'>
+          <div className='grid grid-cols-5 gap-4 flex-auto'>
             {
               data.map((item, index) => {
                 return (
@@ -48,11 +46,10 @@ export default function Home({ data }) {
                     img={item.links.mission_patch}
                     mission_id={item.mission_id}
                     launchYear={item.launch_year}
-                    launchSuccess={item.launch_success}
-                    landingSuccess={item.rocket.first_stage.cores[0].land_success} />
+                    launchSuccess={String(item.launch_success)}
+                    landingSuccess={String(item.rocket.first_stage.cores[0].land_success)} />
                 )
               }
-
               )}
           </div>
         </div>
