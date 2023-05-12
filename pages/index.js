@@ -30,6 +30,9 @@ export default function Home({ data }) {
     <div>
       <Head>
         <title>SpaceX Launch Programs</title>
+        <meta
+          name="description"
+          content="SpaceX Launch Programs and whether they were successful or not."></meta>
       </Head>
       <section>
         <h1 className='text-3xl font-bold p-4'>SpaceX Launch</h1>
