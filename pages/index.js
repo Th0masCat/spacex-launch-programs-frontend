@@ -1,20 +1,38 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
+import Filters from '../components/filters'
+import Components from '../components/components'
+import { useEffect } from 'react'
+import axios from 'axios'
+
+
 
 export default function Home() {
+  useEffect(() => {
+    axios.get('https://api.spacexdata.com/v3/launches?limit=100')
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [])
+
+
   return (
-    <Layout home>
+    <div>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+      <section>
+        <h1 className='text-3xl font-bold'>SpaceX Launch</h1>
+        <div className='flex'>
+          <Filters />
+          <Components name='haha' launchYear="2191" launchSuccess="haha" landingSuccess='haha'/>
+        </div>
+       
+
       </section>
-    </Layout>
+    </div>
   )
 }
