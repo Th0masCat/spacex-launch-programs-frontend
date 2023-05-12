@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Components(props) {
     return (
         <div className="flex flex-col justify-center rounded-lg bg-white h-fit">
-            <Image className='self-center m-4' src={props.img} height={144} width={144} alt={props.name} />
+            <Image priority={true} className='self-center m-10' src={props.img} height={144} width={144} alt={props.name} />
             <div className='p-5'>
                 <h1 className="font-bold text-violet-800">{props.name} #{props.num}</h1>
                 <h2 className="font-bold">Mission Ids:</h2>

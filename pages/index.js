@@ -35,7 +35,7 @@ export default function Home({ data }) {
         <h1 className='text-3xl font-bold p-4'>SpaceX Launch</h1>
         <div className='flex justify-start p-5 gap-5'>
           <Filters />
-          <div className='grid grid-cols-5 gap-4 flex-auto'>
+          <div className='grid px-10 grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-4 gap-5 flex-auto'>
             {
               data.map((item, index) => {
                 return (
