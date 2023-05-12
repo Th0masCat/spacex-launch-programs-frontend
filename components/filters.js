@@ -107,8 +107,33 @@ export default function Filters() {
 
                 </div>
 
+            </div>
+
+            <h3 className='text-center  text-red-700 font-light mt-2'>Clear Filters</h3>
+            <div className='flex justify-center gap-2'>
+                <Link
+                    className="flex rounded bg-red-400 justify-center"
+                    href={{
+                        pathname: '/',
+                        query: {},
+                    }}
+                >
+                    <button
+                        className='mx-2'
+                        onClick={() => setFilter(
+                            {
+                                launch_success: null,
+                                land_success: null,
+                                launch_year: null
+                            })}>
+                        Clear
+                    </button>
+                </Link>
+
 
             </div>
+
+
         </div>
 
     )

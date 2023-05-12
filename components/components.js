@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 export default function Components(props) {
     return (
         <div className="flex flex-col justify-center rounded-lg bg-white h-fit">
