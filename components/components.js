@@ -7,14 +7,16 @@ export default function Components(props) {
             <div className='p-5'>
                 <h1 className="font-bold text-violet-800">{props.name} #{props.num}</h1>
                 <h2 className="font-bold">Mission Ids:</h2>
-                    {
-                        props.mission_id.length === 0 ? <li>None</li> :
-                            props.mission_id.map((id, index) => {
-                                return (
-                                    <li className='list-disc' key={index}>{id}</li>
-                                )
-                            })
-                    }
+                <ul className="list-disc">
+                {
+                    props.mission_id.length === 0 ? <li>None</li> :
+                        props.mission_id.map((id, index) => {
+                            return (
+                                <li key={index}>{id}</li>
+                            )
+                        })
+                }
+                </ul>
                 <h2 className="font-bold">Launch Year:
                     <span className="text-violet-800 font-light"> {props.launchYear}</span>
                 </h2>

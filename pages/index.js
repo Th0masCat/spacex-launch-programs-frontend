@@ -16,11 +16,9 @@ export async function getServerSideProps(context) {
   });
 
   const apiUrl = `${baseUrl}&${qs.stringify(queryParams)}`;
-  console.log(queryParams, apiUrl);
 
-
-  const res = await fetch(apiUrl);
-  const data = await res.json();
+  const resa = await fetch(apiUrl);
+  const data = await resa.json();
 
   return { props: { data } };
 }

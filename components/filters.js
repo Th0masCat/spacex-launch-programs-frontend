@@ -20,6 +20,7 @@ export default function Filters() {
                             2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020].map((year, index) => {
                                 return (
                                     <Link
+                                        onClick={() => setFilter({ ...filter, launch_year: year })}
                                         className="flex rounded bg-lime-400 justify-center"
                                         key={index}
                                         href={{
@@ -27,12 +28,7 @@ export default function Filters() {
                                             query: { ...filter, launch_year: year },
                                         }}
                                     >
-                                        <button
-                                            onClick={() => setFilter({ ...filter, launch_year: year })}
-                                            key={index}
-                                        >
-                                            {year}
-                                        </button>
+                                        {year}
                                     </Link>
                                 )
                             }
@@ -42,33 +38,27 @@ export default function Filters() {
                 <h3 className='text-center font-light mt-2'>Successful Launch</h3>
                 <div className='flex justify-center gap-2'>
                     <Link
-                        className="flex rounded bg-lime-400 justify-center"
+                        onClick={() => setFilter(
+                            { ...filter, launch_success: true })}
+                        className="flex rounded bg-lime-400 justify-center px-2"
                         href={{
                             pathname: '/',
                             query: { launch_success: true, landing_success: filter.land_success, launch_year: filter.launch_year },
                         }}
                     >
-                        <button
-                            className='mx-2'
-                            onClick={() => setFilter(
-                                { ...filter, launch_success: true })}>
-                            True
-                        </button>
+                        True
                     </Link>
 
                     <Link
-                        className="flex rounded bg-lime-400 justify-center"
+                        onClick={() => setFilter(
+                            { ...filter, launch_success: false })}
+                        className="flex rounded bg-lime-400 justify-center px-2"
                         href={{
                             pathname: '/',
                             query: { launch_success: false, landing_success: filter.land_success, launch_year: filter.launch_year },
                         }}
                     >
-                        <button
-                            className='mx-2'
-                            onClick={() => setFilter(
-                                { ...filter, launch_success: false })}>
-                            False
-                        </button>
+                        False
                     </Link>
 
                 </div>
@@ -76,33 +66,27 @@ export default function Filters() {
                 <h3 className='text-center font-light mt-2'>Successful Landing</h3>
                 <div className='flex justify-center gap-2'>
                     <Link
-                        className="flex rounded bg-lime-400 justify-center"
+                        onClick={() => setFilter(
+                            { ...filter, land_success: true })}
+                        className="flex rounded bg-lime-400 justify-center px-2"
                         href={{
                             pathname: '/',
                             query: { launch_success: filter.launch_success, landing_success: true, launch_year: filter.launch_year },
                         }}
                     >
-                        <button
-                            className='mx-2'
-                            onClick={() => setFilter(
-                                { ...filter, land_success: true })}>
-                            True
-                        </button>
+                        True
                     </Link>
 
                     <Link
-                        className="flex rounded bg-lime-400 justify-center"
+                        onClick={() => setFilter(
+                            { ...filter, land_success: false })}
+                        className="flex rounded bg-lime-400 justify-center px-2"
                         href={{
                             pathname: '/',
                             query: { launch_success: filter.launch_success, landing_success: false, launch_year: filter.launch_year },
                         }}
                     >
-                        <button
-                            className='mx-2'
-                            onClick={() => setFilter(
-                                { ...filter, land_success: false })}>
-                            False
-                        </button>
+                        False
                     </Link>
 
                 </div>
@@ -112,22 +96,19 @@ export default function Filters() {
             <h3 className='text-center  text-red-700 font-light mt-2'>Clear Filters</h3>
             <div className='flex justify-center gap-2'>
                 <Link
-                    className="flex rounded bg-red-400 justify-center"
+                    onClick={() => setFilter(
+                        {
+                            launch_success: null,
+                            land_success: null,
+                            launch_year: null
+                        })}
+                    className="flex rounded bg-red-400 justify-center px-2"
                     href={{
                         pathname: '/',
                         query: {},
                     }}
                 >
-                    <button
-                        className='mx-2'
-                        onClick={() => setFilter(
-                            {
-                                launch_success: null,
-                                land_success: null,
-                                launch_year: null
-                            })}>
-                        Clear
-                    </button>
+                    Clear
                 </Link>
 
 
